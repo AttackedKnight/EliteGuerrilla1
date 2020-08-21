@@ -1,0 +1,14 @@
+{
+  "name": "eliteguerrilla",
+  "version": "1.0.0",
+  "description": "CLASSIFIED",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hover.css": "^2.3.2"
+  }
+}
