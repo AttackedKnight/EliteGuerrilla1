@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hover.css": "^2.3.2"
+    "hover.css": "^2.3.2",
+    "pug": "^3.0.0"
   }
 }

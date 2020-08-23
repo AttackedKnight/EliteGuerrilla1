@@ -1,190 +1,189 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
-:root {
-  --body-bg: #fff;
-  --primary: #1a1a1a;
-  --primaryfont: #fff;
-  --secondary: #92a6e2;
-  --secondary-hover: #d65050;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: 0;
-  font-family: Montserrat, sans-serif;
+html{
+	font-size: 10px;
+	font-family: "Roboto Cn", sans-serif;
 }
 
-body {
-  background: var(--body-bg);
+a{
+	text-decoration: none;
+	color: #eee;
 }
 
-ul {
-  list-style: none; 
+header{
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.5)), url("https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80") center no-repeat;
+	background-size: cover;
+	position: relative;
+  overflow: hidden;
 }
 
-.wrapper {
-  margin: 10px;
-}
-.wrapper .top_navbar {
-  width: calc(100% - 20px);
-  height: 60px;
-  display: flex;
-  position: fixed;
-  top: 10px;
-}
-.wrapper .top_navbar .hamburguer {
-  width: 70px;
-  background: var(--primary);
-  padding: 15px 0;
-  border-top-left-radius: 20px;
-  cursor: pointer;
+.container{
+	max-width: 120rem;
+	width: 90%;
+	margin: 0 auto;
 }
 
-.wrapper .top_navbar .hamburguer i {
-  font-size: 32px;
-  text-align: center;
-  width: 100%;
-  color: var(--secondary);
+.menu-toggle{
+	position: fixed;
+	top: 2.5rem;
+	right: 2.5rem;
+	color: #eeeeee;
+	font-size: 3rem;
+	cursor: pointer;
+	z-index: 1000;
+	display: none;
 }
 
-.wrapper .top_navbar .top_menu {
-  width: calc(100% - 70px);
-  background: #1a1a1a;
-  height: 100%;
-  border-top-right-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  color: var(--primary);
+nav{
+	padding-top: 5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 1.6rem;
 }
 
-.wrapper .top_navbar .top_menu .logo {
-  color: var(--primaryfont);
-  font-weight: 600;
-  letter-spacing: 3px;
+.brand{
+	font-size: 3rem;
+	font-weight: 300;
+	transform: translateX(-100rem);
+	animation: slideIn .5s forwards;
 }
 
-.wrapper .top_navbar .top_menu ul {
-  display: flex;
+.brand span{
+	color: crimson;
 }
 
-.wrapper .top_navbar .top_menu ul li a {
-  display: block;
-  margin: 0 10px;
-  width: 35px;
-  height: 35px;
-  border: 1px solid var(--primary);
-  line-height: 35px;
-  text-align: center;
-  border-radius: 50%;
-  color: var(--primary);
-  transition: all 0.2s ease-in-out;
+nav ul{
+	display: flex;
 }
 
-.wrapper .top_navbar .top_menu ul li a:hover {
-  background: var(--secondary-hover);
-  color: white;
-  transition: all 0.2s ease-in-out;
+nav ul li{
+	list-style: none;
+	transform: translateX(100rem);
+	animation: slideIn .5s forwards;
 }
 
-.wrapper .sidebar {
-  position: fixed;
-  top: 70px;
-  left: 10px;
-  background: var(--primary);
-  width: 200px;
-  height: calc(100% - 80px);
-  border-bottom-left-radius: 20px;
-  transition: all 0.2s ease-in-out;
-  border-right: solid 2px red;
+nav ul li:nth-child(1){
+	animation-delay: 0s;
 }
 
-.wrapper .sidebar ul li a {
-  display: block;
-  padding: 20px;
-  color: white;
-  position: relative;
-  margin-bottom: 1px;
-  color: var(--secondary);
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  white-space: nowrap;
+nav ul li:nth-child(2){
+	animation-delay: .5s;
 }
 
-.wrapper .sidebar ul li a:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--secondary);
+nav ul li:nth-child(3){
+	animation-delay: 1s;
+}
+
+nav ul li:nth-child(4){
+	animation-delay: 1.5s;
+}
+
+nav ul li a{
+	padding: 1rem 0;
+	margin: 0 3rem;
+	position: relative;
+	letter-spacing: 2px;
+}
+
+nav ul li a:last-child{
+	margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: crimson;
+	left: 0;
+	transform: scaleX(0);
+	transition: all .5s;
+}
+
+nav ul li a::before{
+	top: 0;
+	transform-origin: left;
+}
+
+nav ul li a::after{
+	bottom: 0;
+	transform-origin: right;
+}
+
+.overlay{
+	background-color: rgba(0,0,0,.95);
+	position: fixed;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	transition: opacity 650ms;
+	transform: scale(0);
+	opacity: 0;
   display: none;
 }
 
-.wrapper .sidebar ul li a span.icon {
-  margin-right: 10px;
-  display: inline-block;
+nav ul li a:hover::before,
+nav ul li a:hover::after{
+	transform: scaleX(1);
 }
 
-.wrapper .sidebar ul li a span.title {
-  display: inline-block;
+@keyframes slideIn {
+	from{
+
+	}
+	to{
+		transform: translateX(0);
+	}
 }
 
-.wrapper .sidebar ul li a:hover,
-.wrapper .sidebar ul li a:active {
-  background: var(--secondary-hover);
-  transition: all 0.2s ease-in-out;
-  color: white;
-}
+@media screen and (max-width: 700px){
 
-.wrapper .sidebar ul li a:hover:before,
-.wrapper .sidebar ul li a:active:before {
-  display: block;
-}
+	.menu-toggle{
+		display: block;
+	}
 
-.wrapper .sidebar ul li a:hover{
-  transform: translate3d(1px, -1px, 1px);
-}
+	nav{
+		padding-top: 0;
+		display: none;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		height: 100vh;
+		text-align: center;
+	}
 
-.wrapper .main_container {
-  margin-top: 70px;
-  margin-left: 200px;
-  padding: 15px 0 15px 15px;
-  transition: all 0.2s ease-in-out;
-  height: calc(100vh - 110px);
-  overflow: auto;
-  border-bottom-right-radius: 20px;
-}
+	nav ul{
+		flex-direction: column;
+	}
 
-.wrapper .main_container .item {
-  background: white;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 14px;
-  line-height: 22px;
-}
+	nav ul li{
+		margin-top: 5rem;
+	}
 
-.wrapper.collapse .sidebar {
-  width: 70px;
-}
+	nav ul li a{
+		margin: 0;
+		font-size: 2.5rem;
+	}
 
-.wrapper.collapse .sidebar ul li a { 
-   text-align: center;
-}
-
-.wrapper.collapse .sidebar ul li a span.icon {
-  margin: 0; 
-}
-
-.wrapper.collapse .sidebar ul li a span.title {
-  display: none;
-}
-
-.wrapper.collapse .main_container {
-  margin-left: 70px;
-  height: calc(100vh - 110px);
-  overflow: auto;
-  border-bottom-right-radius: 20px;
+	.brand{
+		font-size: 5rem;
+	}
+  
+  .overlay.menu-open,
+  nav.menu-open{
+	  display: flex;
+	  transform: scale(1);
+	  opacity: 1;
+  }
+  
 }
